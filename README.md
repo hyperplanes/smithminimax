@@ -24,7 +24,7 @@ winner=smithMinimax(votes)
 winner2=smithMinimax(votes,setdiff(colnames(votes),winner))
 ```
 
-Use the `getVoteShare` method to calculate a `votes` matrix from raw voter data. The method takes a `data_df` argument that is a dataframe where each candidate has a column, each voter has a row, and the cells indicate the voter's rank for each candidate, with 1 being the most prefered and `N` being the least prefered. Unranked candidates can be entered as `NA` and treated as non-response in pairwise votes, or can be filled in with the value `N` and treated as tied for that voter's least prefered candidate. By default, `getVoteShare` assumes that every column that isn't `voterId` as a candidate. Optionally, you can pass a vector the names of the columns that are candidates as the `candidates` argument.
+Use the `getVoteShare` method to calculate a `votes` matrix from raw voter data. The method takes a `data_df` argument that is a dataframe where each candidate has a column, each voter has a row, and the cells indicate the voter's rank for each candidate, with 1 being the most prefered and `N` being the least prefered. Unranked candidates can be entered as `NA` and treated as non-response in pairwise votes, or can be filled in with the value `N` and treated as tied for that voter's least prefered candidate. By default, `getVoteShare` assumes that every column that isn't `voterId` is a candidate. Optionally, you can pass a vector of column names that are candidates as the `candidates` argument.
 
 ```R
 #assumes every column of data_df except voterId is a candidate
