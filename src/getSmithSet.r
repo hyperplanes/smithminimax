@@ -1,5 +1,5 @@
-getSmithSet=function(days,votes) {
-	allSets=getAllSets(days)
+getSmithSet=function(candidates,votes) {
+	allSets=getAllSets(candidates)
 	nAllSets=NULL
 	smithSet=NULL
 	test=function(set,notin){
@@ -22,7 +22,7 @@ getSmithSet=function(days,votes) {
 	}
 	for(i in 1:length(allSets)){
 		set=allSets[i]
-		notin=setdiff(days,unlist(set))
+		notin=setdiff(candidates,unlist(set))
 		nAllSets[i]=list(notin)
 		smithSet[i]=test(set,notin)
 	}
