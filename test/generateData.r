@@ -1,0 +1,19 @@
+generateData=function(N){
+	numberOfCandidates=candidates=numberOfVoters=voterId=voterPrefs=data_df=NULL
+	numberOfCandidates=rpois(1,10)
+	candidates=LETTERS[seq(numberOfCandidates)]
+	numberOfVoters=N
+	voterId=seq(numberOfVoters)
+	generatePreference=function(e){
+		x=sample(candidates,size=numberOfCandidates-runif(1,0,numberOfCandidates),replace=FALSE)
+		xAugment=c(x,setdiff(candidates,x))
+		ySeq=c(seq_along(x),rep(NA,length(candidates)-length(x)))
+		y=ySeq[order(xAugment)]
+		return(y)
+	}
+	voterPrefs=lapply(voterId,FUN=generatePreference)
+	data_df=as.data.frame(do.call(rbind, voterPrefs))
+	names(data_df)=candidates
+	data_df$voterId=voterId
+	return(data_df)
+}
