@@ -5,8 +5,8 @@ source('../src/getVoteShares.r')
 source('../src/calcMinimax.r')
 source('generateData.r')
 source('../src/smithMinimax.r')
-data_df=days=votes=winner=winner2=days2=NULL
-data_df=generateData(10000)
+data_df=votes=winner=winner2=NULL
+data_df=generateData(1000000)
 candidates=setdiff(names(data_df),'voterId')
 
 bottomcode=length(candidates)
