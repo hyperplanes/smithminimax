@@ -1,3 +1,5 @@
+library(rbenchmark)
+test=function(){
 library(tidyverse)
 source('../src/getAllSets.r')
 source('../src/getSmithSet.r')
@@ -21,5 +23,6 @@ winner2=setdiff(candidates,winner) %>%
 	smithMinimax(votes,.)
 
 paste0("First winner: ",winner) %>% print
-paste0("Second winner: ",arrayToString(winner2))
-
+paste0("Second winner: ",winner2) %>% print
+}
+benchmark(test())
